@@ -1,3 +1,5 @@
+let artistInputEl = document.querySelector("#search-bar");
+
 var getSongs = function(artist,title) {
     //format the github api url
     var apiUrl= "https://api.lyrics.ovh/v1/artist/" + artist + "/title" + title
@@ -55,3 +57,8 @@ var displaySongs = function(songs, searchTerm) {
         songContainerEl.appendChild(songEl);
     }
 };
+function btnCheck(event){
+    event.preventDefault();
+console.log("Button works");
+}
+artistInputEl.addEventListener("submit", btnCheck)
