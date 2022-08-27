@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/CSS/Styles.css" />
@@ -13,22 +13,34 @@
   </head>
 
   <body>
-    <header class="jumbotron">
-      <h1 class="display-3">Step2Rhythm</h1>
-      <p class="lead">A simple music app for finding the perfect tune to your day</p>
-      <p id="currentDay" class="lead"></p>
+    <header class="container header">
+      <h1 class="logo">Step2Rhythm</h1>
     </header>
-    <div class="container">
+    <div class="">
       <!-- Search bar goes here -->
-      <div id="search-crit" class="row search-block">
-        <div class=" col-md-1 hour">
-          Search criteria
+      <div id="search-crit" class="">
+        <div class=" ">
+          <p class="">Step2Rhythm is a web app used to find the lyrics to your favorite songs and suggestions to arists you may also enjoy!</p>
+          <p id="currentDay" class=""></p>
         </div>
-        <form id="search-bar" class="row col-md-10 description">
-            <input name="artistInput" id="searchArtist" type="text" class="row col-md-10 description" />
-            <button id="create-search" class="btn saveBtn col-md-1" type="submit" data-toggle="modal" data-target="#task-form-modal">
-            <i class="fa-solid fa-guitar"></i></button>
+        
+      </div>
+    </div>
+    <div class="card search-container">
+      <div class="card-content">
+        <div class="content content-form">
+          <form id="search-bar">
+            <legend class="form-title">Search for your favorite song!</legend>
+            <input name="artistInput" id="searchArtist" type="text" placeholder="Artist Name"/>
+            <br>
+            <br>
+            <input type="text" name="songInput" id="songInput" placeholder="Song Title">
+            <br><br>
+            <button id="create-search" class="button is-success" type="submit" data-toggle="modal" data-target="#task-form-modal">
+              Search
+            </button>
         </form>   
+        </div>
       </div>
     </div>
 

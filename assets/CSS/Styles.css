@@ -1,3 +1,36 @@
+:root{
+    --primary-color: #576F72;
+    --secondary-color: #E4DCCF;
+    --accent-color: #7D9D9C;
+    --accent2-color: #F0EBE3;
+}
+
 #artistInput{
     width: 100%;
+}
+
+.header{
+    background-color: var(--primary-color);
+    padding: 1.2em;
+}
+
+.logo{
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.content-form{
+    text-align: center;
+}
+
+.search-container{
+    background-color: var(--accent2-color);
+}
+
+.form-title{
+    font-size: 1.2em;
+    font-weight: 500;
+    padding-bottom: 8px;
 }
