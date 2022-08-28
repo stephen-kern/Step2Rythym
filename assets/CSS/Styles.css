@@ -5,9 +5,6 @@
     --accent2-color: #F0EBE3;
 }
 
-#artistInput{
-    width: 100%;
-}
 
 .header{
     background-color: var(--primary-color);
