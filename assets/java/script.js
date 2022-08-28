@@ -11,9 +11,16 @@ let client_id = "63d3486515dc43269b27ab2aa50b79f2";
 let client_secret = "313a1d1dbd4149069b2c051fb49e2e1a";
 // Authorize url
 const authorize = "https://accounts.spotify.com/authorize"
-//Create an an array for Recent Searches
 
-//Store User Search Input in local storage for later use
+function onPageLoad(){
+    if (window.location.search.length > 0){
+        handleRedirect();
+    }
+}
+function handleRedirect(){
+    
+}
+
 
 //request authorization from spotify
 function requestAuthorization(){
@@ -34,8 +41,8 @@ function requestAuthorization(){
     console.log(apiUrl);
 
 
-      
-  
+     //Store User Search Input in local storage for later use 
+  //Create an an array for Recent Searches
 //Save code for later reference / might be junkcode
 //     //make a request to the url
 //     then(function(response){
