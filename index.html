@@ -12,7 +12,7 @@
     <title>Step2Rhythm</title>
   </head>
 
-  <body>
+  <body onload="onPageLoad()">
     <header class="container header">
       <h1 class="logo">Step2Rhythm</h1>
     </header>
@@ -35,7 +35,7 @@
             <br>
             <input type="text" name="songInput" id="songInput" placeholder="Song Title">
             <br><br>
-            <button id="create-search" class="button is-success" type="submit" data-toggle="modal" data-target="#task-form-modal">
+            <button id="create-search" class="button is-success" type="submit" data-toggle="modal" data-target="#task-form-modal" onclick="requestAuthorization()">
               Search
             </button>
         </form>   
