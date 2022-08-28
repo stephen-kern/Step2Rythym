@@ -23,11 +23,15 @@
 }
 
 .search-container{
-    background-color: var(--accent2-color);
+    background-color: var(--secondary-color);
 }
 
 .form-title{
     font-size: 1.2em;
     font-weight: 500;
     padding-bottom: 8px;
+}
+
+.f-icon{
+    font-size: 2rem;
 }

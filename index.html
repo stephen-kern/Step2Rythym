@@ -13,35 +13,53 @@
   </head>
 
   <body onload="onPageLoad()">
+
     <header class="container header">
       <h1 class="logo">Step2Rhythm</h1>
     </header>
-    <div class="">
-      <!-- Search bar goes here -->
-      <div id="search-crit" class="">
-        <div class=" ">
-          <p class="">Step2Rhythm is a web app used to find the lyrics to your favorite songs and suggestions to arists you may also enjoy!</p>
-          <p id="currentDay" class=""></p>
+
+    <!-- this is the "hero" or description div -->
+    <section class="section">
+      <div class="">
+        <div id="search-crit" class="">
+          <div class="subtitle is-4">
+            <p class="">Step2Rhythm is a web app used to find the lyrics to your favorite songs and suggestions to arists you may also enjoy!</p>
+            <p id="currentDay" class=""></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="card search-container">
-      <div class="card-content">
-        <div class="content content-form">
-          <form id="search-bar">
-            <legend class="form-title">Search for your favorite song!</legend>
-            <input name="artistInput" id="searchArtist" type="text" placeholder="Artist Name"/>
-            <br>
-            <br>
-            <input type="text" name="songInput" id="songInput" placeholder="Song Title">
-            <br><br>
-            <button id="create-search" class="button is-success" type="submit" data-toggle="modal" data-target="#task-form-modal" onclick="requestAuthorization()">
-              Search
-            </button>
-        </form>   
+    </section>
+
+    <!-- search bar container -->
+    <section class="section">
+      <div class="card search-container">
+        <div class="card-content">
+          <div class="content content-form">
+            <form id="search-bar">
+              <legend class="form-title">Search for your favorite song!</legend>
+              <input name="artistInput" id="searchArtist" class="input" type="text" placeholder="Artist Name"/>
+              <br>
+              <br>
+              <input type="text" name="songInput" class="input" id="songInput" placeholder="Song Title">
+              <br><br>
+              <button id="create-search" class="button is-success" type="submit" data-toggle="modal" data-target="#task-form-modal" onclick="requestAuthorization()">
+                Search
+              </button>
+          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- footer with icon link -->
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Step2Rythym</strong> by <a href="https://github.com/JayWhiteBuffalo">Tyler Mason</a>, <a href="https://github.com/PhuongHoang68">Phuong Hoang</a>, and <a href="https://github.com/stephen-kern">Stephen Kern</a>.
+        </p>
+        <i class="fa-brands fa-square-github f-icon"></i>
+      </div>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
