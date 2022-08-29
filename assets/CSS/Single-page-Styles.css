@@ -1,0 +1,53 @@
+:root{
+    --primary-color: #576F72;
+    --secondary-color: #E4DCCF;
+    --accent-color: #7D9D9C;
+    --accent2-color: #F0EBE3;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+  }
+  
+  textarea{
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #000000;
+    border-top: 1px solid var(--accent2-color);
+    padding: 10px;
+  }
+  
+  .jumbotron {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 0;
+  }
+
+  .description{
+    white-space: pre-wrap;
+  }
+
+
+/*styling for footer*/
+  .f-icon{
+    font-size: 2rem;
+}
+
+.f-icon:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.footer-push{
+    margin-bottom: 15rem;
+}

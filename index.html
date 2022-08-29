@@ -22,8 +22,12 @@
     <section class="section">
       <div class="">
         <div id="search-crit" class="">
-          <div class="subtitle is-4">
-            <p class="">Step2Rhythm is a web app used to find the lyrics to your favorite songs and suggestions to arists you may also enjoy!</p>
+          <div>
+            <p class="description has-text-centered">
+              Step2Rhythm is a web app used to find the lyrics to your favorite songs and suggestions to arists you may also enjoy!
+              <br>
+              Try searching for a song below!
+            </p>
             <p id="currentDay" class=""></p>
           </div>
         </div>
@@ -31,8 +35,8 @@
     </section>
 
     <!-- search bar container -->
-    <section class="section">
-      <div class="card search-container">
+    <section class="section footer-push">
+      <div class="card search-container container">
         <div class="card-content">
           <div class="content content-form">
             <form id="search-bar">
@@ -42,7 +46,7 @@
               <br>
               <input type="text" name="songInput" class="input" id="songInput" placeholder="Song Title">
               <br><br>
-              <button id="create-search" class="button is-success" type="submit" data-toggle="modal" data-target="#task-form-modal" onclick="requestAuthorization()">
+              <button id="create-search" class="button is-success is-responsive" type="submit" data-toggle="modal" data-target="#task-form-modal" onclick="requestAuthorization()">
                 Search
               </button>
           </form>
