@@ -5,10 +5,21 @@
     --accent2-color: #F0EBE3;
 }
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 .header{
     background-color: var(--primary-color);
     padding: 1.2em;
+    min-width: 100%;
+}
+
+.description{
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .logo{
@@ -34,4 +45,13 @@
 
 .f-icon{
     font-size: 2rem;
+}
+
+.f-icon:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.footer-push{
+    margin-bottom: 15rem;
 }
