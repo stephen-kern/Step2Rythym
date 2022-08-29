@@ -37,12 +37,27 @@ function fetchAccessToken(code){
 }
 
 function callAuthorizationApi(body){
+
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", token, true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('Authorization', 'Basic' + btoa(client_id + ":" + client_secret) );
-    xhr.send(body);
-    xhr.onload = handleAuthorizationResponse;
+     xhr.open("POST", TOKEN, true);
+     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+     xhr.setRequestHeader('Authorization', 'Basic' + btoa(client_id + ":" + client_secret) );
+     xhr.send(body);
+     xhr.onload = handleAuthorizationResponse;
+    // const APIController = (function(){
+    //     const getToken = async () =>{
+    //         const result = await fetch(TOKEN, {
+    //             method: 'POST',
+    //          headers: {
+    //                 'Content-Type': 'application/x-www-form-urlencoded',
+    //                 'Authorization': 'Basic' + btoa(client_id + ":" + client_secret)
+    //             },
+    //             body: 'grant_type=client_credentials'
+    //         });
+    //         const data = await result.json();
+    //         return data.access_token;
+    //     }});
+    
 }
 
 function handleAuthorizationResponse(){
@@ -65,21 +80,21 @@ function handleAuthorizationResponse(){
     }
 
 }
-
+//
     function getCode(){
         let code = null;
+         
         const queryString = window.location.search;
-        if (queryString.length > 0);
+        if (queryString.length > 0){
          const urlParams = new URLSearchParams(queryString);
             code = urlParams.get('code')
-
+        }
             return code;
     }
    
 
 //request authorization from spotify
 function requestAuthorization(){
-    debugger
     let url = authorize;
     url += "?client_id=" + client_id;
     url += "&response_type=code";
@@ -88,6 +103,8 @@ function requestAuthorization(){
     url += "&scope=user-read-private user-read-email user-modify-playback-state user-read-playback-position user-library-read streaming user-read-playback-state user-read-recently-played user-top-read playlist-modify-public"
     window.location.href = url; //Show Spotify's authorization screen
 }
+
+
 
 //function to accept both the array of response data and the term we searches as parameters
 // var displaySongs = function(songs, searchTerm) {
