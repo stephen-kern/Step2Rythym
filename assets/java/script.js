@@ -44,26 +44,26 @@ function callAuthorizationApi(body){
      xhr.setRequestHeader('Authorization', 'Basic' + btoa(client_id + ":" + client_secret) );
      xhr.send(body);
      xhr.onload = handleAuthorizationResponse;
-    // const APIController = (function(){
-    //     const getToken = async () =>{
-    //         const result = await fetch(TOKEN, {
-    //             method: 'POST',
-    //          headers: {
-    //                 'Content-Type': 'application/x-www-form-urlencoded',
-    //                 'Authorization': 'Basic' + btoa(client_id + ":" + client_secret)
-    //             },
-    //             body: 'grant_type=client_credentials'
-    //         });
-    //         const data = await result.json();
-    //         return data.access_token;
-    //     }});
+    const APIController = (function(){
+        const getToken = async () =>{
+            const result = await fetch(TOKEN, {
+                method: 'POST',
+             headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Authorization': 'Basic' + btoa(client_id + ":" + client_secret)
+                },
+                body: 'grant_type=client_credentials'
+            });
+            const data = await result.json();
+            return data.access_token;
+        }});
     
 }
 
 function handleAuthorizationResponse(){
     if(this.status = 200){
         var data = JSON.parse(this.responseText);
-        console.log(data);
+        //console.log(data);
         var data = JSON.parse(this.responseText);
         if (data.access_token != undefined){
             access_token = data.access_token;
