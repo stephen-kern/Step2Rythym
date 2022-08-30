@@ -7,7 +7,7 @@ let songInput = document.getElementById('songInput');
 //let client_id = 'RZW6cI7SahSMcoIvDUIzRqkb4LAhMSW4wDBfxbDsXS1CfTnLJTUZcWa1AlHD03Wp'
 //let client_secret = 'jhWoIv7gioCmc_dEnUxtv0nJAELUdEsYj3xFv1uH_WFVTiHrcCopr3yD1tmedOcItu123BSyuXXsxB1TAml7aA'
 let apiToken= 'K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h'
-
+let url = window.location.href;
 //User info submit
 function handleSubmit(event){
     event.preventDefault();
@@ -15,6 +15,7 @@ function handleSubmit(event){
     const songInput = document.getElementById('songInput').value;
     console.log(songInput);
     fetchSongs(songInput);
+    redirect();
 }
 
 //get lyrics from Gnius
@@ -31,6 +32,30 @@ function fetchSongs (songInput) {
         .then((data) =>{
             console.log(data.response.hits[0].result.artist_names);
         })}
+
+function redirect(){
+    //replace this with url + '/single-page'
+    window.location.href = 'http://127.0.0.1:5500/single-page.html';
+}
+
+function getArtistImg(songInput){
+        // format the github api url and replace spaces with %20
+        const cleanSongInput = songInput.replace(/\s/g, '%20');
+        //var apiUrl = "https://api.genius.com/songs/${id}?=${ACCESS_TOKEN}"
+        var apiUrl = `https://api.genius.com/search?q=${cleanSongInput}&access_token=K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h`;
+        // make a get request to url
+        fetch(apiUrl)
+          .then((response) => {
+            return response.json();})
+            //this is where we target what we want
+            .then((data) =>{
+                let updateArtistImgurl = (data.response.hits[0].result.header_image_url);
+                document.getElementById('artistImg').src = updateArtistImgurl
+                
+            })}
+
+
+
 
         //error handle request code
     //     // request was successful
