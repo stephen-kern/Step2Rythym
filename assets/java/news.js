@@ -2,7 +2,7 @@ let newsToken = "07858fbf6a24ae5c4a99e163daf462d0";
 let searchWord = document.getElementById("searchArtist");
 
 // wrap search input inside a eventlistener
-function formSubmitHandler() {
+function formSubmitHandler(event) {
   let searchWord = document.getElementById("searchArtist");
   event.preventDefault();
   // get value from input element

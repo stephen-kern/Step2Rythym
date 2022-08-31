@@ -32,6 +32,7 @@ function fetchSongInfo (songInput) {
     // make a get request to url
 
     console.log(apiUrl);
+
     //clears out old cards and previous arrays
     let relatedArtistsArr = [];
     $('.song-card').remove();
@@ -51,7 +52,7 @@ function fetchSongInfo (songInput) {
             // console.log(data);
             // console.log(hits);
             // console.log(relatedArtistsArr);
-
+            localStorage.setItem('lyrics_url',relatedArtistsArr[0].url );
             console.log(data.response.hits[0].id);
             //Create cards with album art, artist name, full title, maybe link to lyrics when clicked?
             for(let i = 1; i < 4; i++){
@@ -121,8 +122,7 @@ function fetchSongInfo (songInput) {
 function redirect(){
     lyricsBtn.setAttribute ('class','column is-half is-offset-one-quarter is-loading button is-large is-rounded is-success is-responsive is-focused');
 
-    let lyricsUrl = (relatedArtistsArr[0].url);
-
+    let lyricsUrl = localStorage.getItem('lyrics_url');
     window.location.href = lyricsUrl;
 }
 
