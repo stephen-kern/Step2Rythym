@@ -103,6 +103,10 @@
     border-radius: 10%;
   }
 
+.song-card:hover {
+    opacity: .5;
+}
+
 @media screen and (max-width: 595px){
     .box-media{
         max-width: 458px;

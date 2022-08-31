@@ -64,6 +64,7 @@ function fetchSongInfo (songInput) {
                 songCard.classList.add('song-card', "column", "is-12","is-mobile");
     
                 const albumArt = document.createElement('img');
+                albumArt.classList.add('hover');
                 albumArt.setAttribute('src', relatedArtistsArr[i].header_image_thumbnail_url);
                 albumArt.onclick = function(){
                     let songInput = relatedArtistsArr[i].full_title;
