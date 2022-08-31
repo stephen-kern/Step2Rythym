@@ -60,7 +60,10 @@ function fetchSongInfo (songInput) {
     
                 const albumArt = document.createElement('img');
                 albumArt.setAttribute('src', relatedArtistsArr[i].header_image_thumbnail_url);
-
+                albumArt.onclick = function(){
+                    let songInput = relatedArtistsArr[i].artist_names;
+                   fetchSongInfo(songInput);
+                }
                 const songTitle = document.createElement('h3');
                 songTitle.classList.add('song-title');
                 songTitle.innerText = relatedArtistsArr[i].title;//put array obj data here
