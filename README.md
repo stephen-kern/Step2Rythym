@@ -30,7 +30,6 @@ The search will pull up related songs and news
 
 
 
-## How the page looks:
-
+## Link: https://stephen-kern.github.io/Step2Rythym/
 
 
