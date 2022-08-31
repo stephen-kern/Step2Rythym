@@ -6,8 +6,7 @@ const articlesContainerEl = document.querySelector("#articlesBox");
 const formSubmitHandler = function (event) {
   event.preventDefault();
   // get value from input element
-  let search = searchWord.value.trim();
-  console.log(search);
+  let search = $("#searchArtist").val().trim();
   if (search) {
     getArticles(search);
     searchWord.value = "";
@@ -20,16 +19,16 @@ const formSubmitHandler = function (event) {
 const getArticles = function (userSearch) {
   let search = userSearch.replace(/\s/g, "+");
 
-  // format the github api url
-  var apiUrl = `https://gnews.io/api/v4/search?q=${search}&token=${apiToken}`;
+  // format the GNews url
+  const apiUrl = `https://gnews.io/api/v4/search?q=${search}&token=${apiToken}`;
 
   // make a request to the url
   fetch(apiUrl)
     .then(function (response) {
       // request was successful
       if (response.ok) {
-        response.json().then(function (data) {
-          console.log(data);
+        response.json().then(function (search) {
+          console.log(search);
           renderArticleData(search);
         });
       } else {
@@ -43,23 +42,32 @@ const getArticles = function (userSearch) {
 };
 
 // append the articles here 
-const renderArticleData = (search) => {
+const renderArticleData = (userSearch) => {  
   const articlesContainerEl = $("#articlesBox");
   const articleCard = $("<div>")
     .attr("id", "article-card")
-    .addClass("card p-4 m-4 w-40 is-two-thirds");
-  const articleTitle = search.title;
-  const articleDesc = $("<p>").text(search.description).addClass("is-size-3");
-  // const articleSrc = $("<h4>").text(search.source.name);
-  // const articleUrl = search.source.url;
+    .addClass("card p-4 m-4 w-40 is-half is-offset-one-quarter");
+  const articleTitle = userSearch.article.title;
+  const articleDesc = $("<p>").text(data.articles.description).addClass("is-size-3");
+  const articleSrc = $("<h4>").text(userSearch.articles.source.name);
+  const articleUrl = $("a").text(userSearch.articles.source.url);
+
+  if (search.length === 0) {
+    articlesContainerEl.textContent = "No articles found.";
+    return;
+  }
+
+  articlesContainerEl.textContent = "";
 
   articleCard.append(
     articleTitle,
     articleDesc,
-    // articleSrc
+    articleSrc,
+    articleUrl
   );
-  
+
   articlesContainerEl.append(articleCard);
+  
 };
 
 $("#search-form").on("submit", formSubmitHandler);
