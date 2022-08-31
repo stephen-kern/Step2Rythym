@@ -16,14 +16,13 @@
     <header class="container header">
       <h1 class="logo">Step2Rhythm</h1>
       <div class="navbar-end">
-        <a href="index.html" class=" button is-responsive navbar-item back-link">Search for a new song</a>
-        <div class="content content-form">
+        <div class="content content-form container">
           <form id="search-form">
             <legend class="form-title">Search for a Country</legend>
             <input name="Artist" id="searchArtist" class="input" type="text" placeholder="Artist Name"/>
             <br>
             <br>
-            <input type="text" name="songInput" class="input" id="searchSong" placeholder="Song Title">
+            <input type="text" name="songInput" class="input" id="searchSong" placeholder="Enter Song Title or Artist">
             <br><br>
             <button id="create-search" class="button is-success is-responsive is-focused" type="submit" data-toggle="modal" data-target="#task-form-modal">
               Search
@@ -39,7 +38,7 @@
         <div class="box box-accent album-art-titles box-media">
           <p class="title" id="artist-name">Artist Name</p>
           <p class="subtitle" id="song-header">Song Title</p>
-          <figure class="image is-150x150">
+          <figure class="image is-1by1">
             <img id ="cover_art" src="">
           </figure>
         </div>
@@ -51,7 +50,7 @@
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification box-background">
           <p class="title has-text-centered">Lyrics</p>
-          <button id="lyrics" class="is-success is-responsive is-focused" type="button">Get Lyrics</button>
+          <button id="lyrics" class="button is-large is-rounded is-success is-responsive is-focused" type="button">Get Lyrics</button>
         </article>
         <article class="tile is-child notification box-accent">
           <p class="title has-text-centered">Related Artists</p>

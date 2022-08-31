@@ -106,6 +106,8 @@ function fetchSongInfo (songInput) {
     
 
 function redirect(){
+    lyricsBtn.setAttribute ('class','is-loading button is-large is-rounded is-success is-responsive is-focused');
+
     let lyricsUrl = (relatedArtistsArr[0].url);
 
     window.location.href = lyricsUrl;
@@ -113,4 +115,4 @@ function redirect(){
 
 
       searchInputEl.addEventListener("submit", handleSubmit)
-        lyricsBtn.addEventListener("click", redirect)
+      lyricsBtn.addEventListener("click", redirect)
