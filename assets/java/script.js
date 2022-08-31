@@ -1,57 +1,126 @@
-var getSongs = function(artist,title) {
-    //format the github api url
-    var apiUrl= "https://api.lyrics.ovh/v1/artist/" + artist + "/title" + title
+let searchInputEl = document.querySelector("#search-form");
+//User text entry for Artist
+let artistInput = document.getElementById("searchArtist");
+//User text entry for Song name
+let songInput = document.getElementById('searchSong');
+let lyricsBtn = document.getElementById('lyrics');
+let relatedArtistsArr = [];
+//let client_id = 'RZW6cI7SahSMcoIvDUIzRqkb4LAhMSW4wDBfxbDsXS1CfTnLJTUZcWa1AlHD03Wp'
+//let client_secret = 'jhWoIv7gioCmc_dEnUxtv0nJAELUdEsYj3xFv1uH_WFVTiHrcCopr3yD1tmedOcItu123BSyuXXsxB1TAml7aA'
+let apiToken= 'K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h'
+let url = window.location.href;
+//User info submit
+function handleSubmit(event){
+    event.preventDefault();
+    const artistInput = document.getElementById('searchArtist').value;
+    const songInput = document.getElementById('searchSong').value;
+    fetchSongInfo(songInput);
+   // redirect();
+}
 
-    //make a request to the url
-    fetch(apiUrl).
-    then(function(response){
-        //request was successful
-        if (response.ok){
-        response.json().then(function(data){
-            displaySongs(data, artist,title);
-        });
-    } else {
-        alert("Error: Song Not Found");
-    }
-    })
-    .catch(function(error){
-        //Notice this '.catch()' getting chained to the end of the '.then()' method
-        alert("Unable to establish a connection")
-    })
+//get lyrics from Gnius
+function fetchSongInfo (songInput) {
+    // format the github api url and replace spaces with %20
+    const cleanSongInput = songInput.replace(/\s/g, '%20');
+    //var apiUrl = "https://api.genius.com/songs/${id}?=${ACCESS_TOKEN}"
+    var apiUrl = `https://api.genius.com/search?q=${cleanSongInput}&access_token=K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h`;
+    // make a get request to url
+
+    console.log(apiUrl);
+    //clears out old cards and previous arrays
+    let relatedArtistsArr = [];
+    $('.song-card').remove();
+    fetch(apiUrl)
+      .then((response) => {
+        return response.json();})
+        //this is where we target what we want
+        .then((data) =>{//Recieved JSOn OBJ with all song data
+            //move first 10 results into an array
+            console.log(data);
+            
+            
+            let hits = data.response.hits.length;
+            for (let i = 0; i < hits; i++){
+                relatedArtistsArr.push(data.response.hits[i].result)
+            };
+            // console.log(data);
+            // console.log(hits);
+            // console.log(relatedArtistsArr);
+
+            console.log(data.response.hits[0].id);
+            //Create cards with album art, artist name, full title, maybe link to lyrics when clicked?
+            for(let i = 1; i < 4; i++){
+            function displaySongCard() {
+
+                let songCardContainer = document.getElementById('song-card-container');
+
+                const songCard = document.createElement('div');
+                songCard.classList.add('song-card', "column", "is-12","is-mobile");
+    
+                const albumArt = document.createElement('img');
+                albumArt.setAttribute('src', relatedArtistsArr[i].header_image_thumbnail_url);
+
+                const songTitle = document.createElement('h3');
+                songTitle.classList.add('song-title');
+                songTitle.innerText = relatedArtistsArr[i].title;//put array obj data here
+            
+                const songArtist = document.createElement('h4');
+                songArtist.classList.add('song-artist');
+                songArtist.innerText = relatedArtistsArr[i].artist_names;//put array obj data here
+            
+                songCardContainer.appendChild(songCard);
+                songCard.appendChild(songTitle);
+                songCard.appendChild(songArtist);
+                songCard.appendChild(albumArt);
+            
+                
+                //return displaySongCard;
+            }
+            
+            displaySongCard();
+        }
+
+            
+            //setting that cover art url to a var
+         let coverArt = (data.response.hits[0].result.header_image_url);//Cover art image
+         let artistHeader = relatedArtistsArr[0].artist_names;
+            //Adding Artist and Song Title to main result
+            document.getElementById('artist-name').innerHTML = artistHeader
+            document.getElementById('song-header').innerHTML = relatedArtistsArr[0].title;
+
+         
+            //adding cover art to single-page
+            function addArt(){
+                document.getElementById("cover_art").src = coverArt
+            }
+            addArt();
+            
+
+
+
+
+
+       
+        //    console.log(data.response.hits[0].result.artist_names);//artist name
+        //    console.log(data.response.hits[0].result.path);//lyrics url path
+           console.log(data);//whole json data obj
+
+        
+        })
 };
+    
 
-//function to accept both the array of response data and the term we searches as parameters
-var displaySongs = function(songs, searchTerm) {
+    
+    
 
-    //check if api returned any repos
-    if (songs.length === 0) {
-        songContainerEl.textContent = "No songs found.";
-        return;
-    }
-    console.log (songs);
-    console.log(searchTerm);
+function redirect(){
+    lyricsBtn.setAttribute ('class','column is-half is-offset-one-quarter is-loading button is-large is-rounded is-success is-responsive is-focused');
 
-    //clear old content
-    songContainerEl.textContent= "";
-    songSearchTerm.textContent= searchTerm;
+    let lyricsUrl = (relatedArtistsArr[0].url);
 
-    //loop over repos
-    for (var i=0; i< songs.length; i++){
-        //format song name
-        var songName=repos[i].owner.login + "/" + repos[i].name;
+    window.location.href = lyricsUrl;
+}
 
-        //create containers for each repo
-        var songEl = document.createElement("div");
-        songEl.classlist = "list-item flex-row justify-space-between align-center";
 
-        //create span element to hold repo name
-        var titleEl=document.createElement("span");
-        titleEl.textContent = songName;
-
-        //append to container
-        songEl.appendChild(titleEl);
-
-        //append container to the dom
-        songContainerEl.appendChild(songEl);
-    }
-};
+      searchInputEl.addEventListener("submit", handleSubmit)
+      lyricsBtn.addEventListener("click", redirect)
