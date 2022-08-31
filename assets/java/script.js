@@ -3,7 +3,8 @@ let searchInputEl = document.querySelector("#search-form");
 let artistInput = document.getElementById("searchArtist");
 //User text entry for Song name
 let songInput = document.getElementById('searchSong');
-
+let lyricsBtn = document.getElementById('lyrics');
+let relatedArtistsArr = [];
 //let client_id = 'RZW6cI7SahSMcoIvDUIzRqkb4LAhMSW4wDBfxbDsXS1CfTnLJTUZcWa1AlHD03Wp'
 //let client_secret = 'jhWoIv7gioCmc_dEnUxtv0nJAELUdEsYj3xFv1uH_WFVTiHrcCopr3yD1tmedOcItu123BSyuXXsxB1TAml7aA'
 let apiToken= 'K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h'
@@ -30,11 +31,12 @@ function fetchSongInfo (songInput) {
         //this is where we target what we want
         .then((data) =>{//Recieved JSOn OBJ with all song data
             //move first 10 results into an array
-            let relatedArtistsArr = [];
-            let hits = 10;
+            
+            let hits = data.response.hits.length;
             for (let i = 0; i < hits; i++){
                 relatedArtistsArr.push(data.response.hits[i].result)
             };
+            console.log(data);
             console.log(hits);
             console.log(relatedArtistsArr);
 
@@ -45,7 +47,7 @@ function fetchSongInfo (songInput) {
                 let songCardContainer = document.getElementById('song-card-container');
 
                 const songCard = document.createElement('div');
-                songCard.classList.add('song-card');
+                songCard.classList.add('song-card', "column", "is-12","is-mobile");
     
                 const albumArt = document.createElement('img');
                 albumArt.setAttribute('src', relatedArtistsArr[i].header_image_thumbnail_url);
@@ -66,12 +68,18 @@ function fetchSongInfo (songInput) {
                 
                 return displaySongCard;
             }
+            
             displaySongCard();
         }
+
             
             //setting that cover art url to a var
          let coverArt = (data.response.hits[0].result.header_image_url);//Cover art image
-            //
+         let artistHeader = relatedArtistsArr[0].artist_names;
+            //Adding Artist and Song Title to main result
+            document.getElementById('artist-name').innerHTML = artistHeader
+            document.getElementById('song-header').innerHTML = relatedArtistsArr[0].title;
+
          
             //adding cover art to single-page
             function addArt(){
@@ -98,29 +106,11 @@ function fetchSongInfo (songInput) {
     
 
 function redirect(){
-    //replace this with url + '/single-page'
-    window.location.href = 'http://127.0.0.1:5500/single-page.html';
+    let lyricsUrl = (relatedArtistsArr[0].url);
+
+    window.location.href = lyricsUrl;
 }
 
 
-
-
-
-        //error handle request code
-    //     // request was successful
-    //     if (response.ok) {
-    //       console.log(response);
-    //       response.json().then(function(data) {
-    //         console.log(data);
-    //         getSongLyrics(data, song);
-    //       });
-    //     } else {
-    //       alert('Error: Song Lyrics Not Found');
-    //     }
-    //   })
-    //   .catch(function(error) {
-    //     alert("Unable to connect to Search Engine");
-    //   })
-    //     console.log(this)};
-
       searchInputEl.addEventListener("submit", handleSubmit)
+        lyricsBtn.addEventListener("click", redirect)

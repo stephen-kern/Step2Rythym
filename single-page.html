@@ -25,7 +25,7 @@
             <br>
             <input type="text" name="songInput" class="input" id="searchSong" placeholder="Song Title">
             <br><br>
-            <button id="create-search" class="button is-success is-responsive" type="submit" data-toggle="modal" data-target="#task-form-modal">
+            <button id="create-search" class="button is-success is-responsive is-focused" type="submit" data-toggle="modal" data-target="#task-form-modal">
               Search
             </button>
         </form>
@@ -37,9 +37,9 @@
     <section class="section has-text-centered">
       <div class=" container is-mobile">
         <div class="box box-accent album-art-titles box-media">
-          <p class="title">Artist Name</p>
-          <p class="subtitle">Song Title</p>
-          <figure class="image is-1by1">
+          <p class="title" id="artist-name">Artist Name</p>
+          <p class="subtitle" id="song-header">Song Title</p>
+          <figure class="image is-150x150">
             <img id ="cover_art" src="">
           </figure>
         </div>
@@ -51,11 +51,11 @@
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification box-background">
           <p class="title has-text-centered">Lyrics</p>
-          <p id="lyrics" class="has-text-centered">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi laudantium nobis magnam quidem, odit labore ea doloribus officiis neque corrupti, voluptas quos vel porro saepe facilis sit aperiam iste dicta.</p>
+          <button id="lyrics" class="is-success is-responsive is-focused" type="button">Get Lyrics</button>
         </article>
         <article class="tile is-child notification box-accent">
           <p class="title has-text-centered">Related Artists</p>
-          <div class="has-text-centered" id="song-card-container">
+          <div class="has-text-centered comlums" id="song-card-container">
           </div>
         </article>
       </div>
