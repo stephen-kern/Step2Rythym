@@ -1,13 +1,13 @@
 let newsToken = "07858fbf6a24ae5c4a99e163daf462d0";
-let searchWord = document.getElementById("searchArtist").value;
+let searchWord = document.getElementById("searchArtist");
 const articlesContainerEl = document.querySelector("#articlesBox");
 
 // wrap search input inside a eventlistener
-const formSubmitHandler = function (event) {
-  debugger
+function formSubmitHandler() {
+  let searchWord = document.getElementById("searchArtist");
   event.preventDefault();
   // get value from input element
-  let search = searchWord.value.trim();
+  let search = searchWord.value;
   console.log(search);
   if (search) {
     getArticles(search);
@@ -20,7 +20,7 @@ const formSubmitHandler = function (event) {
 
 // wrap api fetch inside a function
 const getArticles = function (data) {
-  let search = userSearch.replace(/\s/g, "+");
+  let search = search.replace(/\s/g, "+");
 
   // format the github api url
   var apiUrl = `https://gnews.io/api/v4/search?q=${search}&token=${newsToken}`;
@@ -88,5 +88,5 @@ function displayArticleCard(userSearch) {
   articleCard.appendChild(albumArt);
 }
 
-$("#search-form").on("submit", formSubmitHandler);
 
+searchWord.addEventListener("submit", formSubmitHandler);
