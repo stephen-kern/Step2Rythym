@@ -9,6 +9,11 @@ let relatedArtistsArr = [];
 //let client_secret = 'jhWoIv7gioCmc_dEnUxtv0nJAELUdEsYj3xFv1uH_WFVTiHrcCopr3yD1tmedOcItu123BSyuXXsxB1TAml7aA'
 let apiToken= 'K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h'
 let url = window.location.href;
+
+
+//local storage api token
+window.localStorage.setItem('name', 'Obaseki Nosa');
+
 //User info submit
 function handleSubmit(event){
     event.preventDefault();
