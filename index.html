@@ -39,12 +39,12 @@
       <div class="card box-background container">
         <div class="card-content">
           <div class="content content-form">
-            <form id="search-bar">
-              <legend class="form-title">Search for your favorite song!</legend>
-              <input name="artistInput" id="searchArtist" class="input" type="text" placeholder="Artist Name"/>
+            <form id="search-form">
+              <legend class="form-title">Enter artist name and song</legend>
+              <input name="Artist" id="searchArtist" class="input" type="text" placeholder="Artist Name"/>
               <br>
               <br>
-              <input type="text" name="songInput" class="input" id="songInput" placeholder="Song Title">
+              <input type="text" name="songInput" class="input" id="searchSong" placeholder="Song Title">
               <br><br>
               <button id="create-search" class="button is-success is-responsive" type="submit" data-toggle="modal" data-target="#task-form-modal">
                 Search
@@ -54,6 +54,10 @@
         </div>
       </div>
     </section>
+
+    <div id="articlesBox">
+
+    </div>
 
     <!-- footer with icon link -->
     <footer class="footer">

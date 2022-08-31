@@ -43,6 +43,7 @@
 
 .content-form{
     text-align: center;
+    align-items: center;
 }
 
 .box-background{
@@ -75,6 +76,21 @@
 .footer-push{
     margin-bottom: 15rem;
 }
+#cover_art{
+   
+  }
+  #song-card-container{
+    display:flex;
+    flex-wrap: wrap;
+    
+  }
+  .song-card{
+    max-width: 400px;
+    flex: 0 0 33.3333333%;
+    
+    padding: 20px 0;
+    border: 1px solid black;
+  }
 
 @media screen and (max-width: 595px){
     .box-media{
