@@ -16,7 +16,19 @@
     <header class="container header">
       <h1 class="logo">Step2Rhythm</h1>
       <div class="navbar-end">
-        <a href="index.html" class=" button is-responsive navbar-item back-link">Search for a new song</a>
+        <div class="content content-form container">
+          <form id="search-form">
+            <legend class="form-title">Search for a Country</legend>
+            <input name="Artist" id="searchArtist" class="input" type="text" placeholder="Artist Name"/>
+            <br>
+            <br>
+            <input type="text" name="songInput" class="input" id="searchSong" placeholder="Enter Song Title or Artist">
+            <br><br>
+            <button id="create-search" class="button is-success is-responsive is-focused" type="submit" data-toggle="modal" data-target="#task-form-modal">
+              Search
+            </button>
+        </form>
+        </div>
       </div>
     </header>
 
@@ -24,10 +36,10 @@
     <section class="section has-text-centered">
       <div class=" container is-mobile">
         <div class="box box-accent album-art-titles box-media">
-          <p class="title">Artist Name</p>
-          <p class="subtitle">Song Title</p>
+          <p class="title" id="artist-name">Artist Name</p>
+          <p class="subtitle" id="song-header">Song Title</p>
           <figure class="image is-1by1">
-            <img id = "artistImg" src="">
+            <img id ="cover_art" src="">
           </figure>
         </div>
       </div>
@@ -38,17 +50,11 @@
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification box-background">
           <p class="title has-text-centered">Lyrics</p>
-          <p id="lyrics" class="has-text-centered">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi laudantium nobis magnam quidem, odit labore ea doloribus officiis neque corrupti, voluptas quos vel porro saepe facilis sit aperiam iste dicta.</p>
+          <button id="lyrics" class="button is-large is-rounded is-success is-responsive is-focused" type="button">Get Lyrics</button>
         </article>
         <article class="tile is-child notification box-accent">
           <p class="title has-text-centered">Related Artists</p>
-          <div class="has-text-centered">
-            <h4>PLACEHOLDER</h4>
-            <h4>PLACEHOLDER</h4>
-            <h4>PLACEHOLDER</h4>
-            <h4>PLACEHOLDER</h4>
-            <h4>PLACEHOLDER</h4>
-            <h4>PLACEHOLDER</h4>
+          <div class="has-text-centered comlums" id="song-card-container">
           </div>
         </article>
       </div>
@@ -68,7 +74,7 @@
         </div>
       </footer>
 
-    <script src="./assets/java/single.js"></script>
+    <script src="./assets/java/script.js"></script>
   </body>
 </html>
 
