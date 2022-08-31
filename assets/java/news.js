@@ -1,4 +1,4 @@
-let newsToken = "07858fbf6a24ae5c4a99e163daf462d0";
+let newsToken = "d7ecf1f23b946ddf28d72ec42e4bd482";
 let searchWord = document.getElementById("searchArtist");
 
 // wrap search input inside a eventlistener
