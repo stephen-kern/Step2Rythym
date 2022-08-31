@@ -25,12 +25,17 @@ function fetchSongInfo (songInput) {
     //var apiUrl = "https://api.genius.com/songs/${id}?=${ACCESS_TOKEN}"
     var apiUrl = `https://api.genius.com/search?q=${cleanSongInput}&access_token=K1i8ef3ZhUTwUfB_noiHI4Q6K6NjQXNx8oE8uKYp9iOiutPCcFPrvEm81n3ixg9h`;
     // make a get request to url
+
+    console.log(apiUrl);
+
     fetch(apiUrl)
       .then((response) => {
         return response.json();})
         //this is where we target what we want
         .then((data) =>{//Recieved JSOn OBJ with all song data
             //move first 10 results into an array
+
+            console.log(data);
             
             let hits = data.response.hits.length;
             for (let i = 0; i < hits; i++){
@@ -40,6 +45,7 @@ function fetchSongInfo (songInput) {
             console.log(hits);
             console.log(relatedArtistsArr);
 
+            console.log(data.response.hits[0].id);
             //Create cards with album art, artist name, full title, maybe link to lyrics when clicked?
             for(let i = 1; i < 4; i++){
             function displaySongCard() {
@@ -66,7 +72,7 @@ function fetchSongInfo (songInput) {
                 songCard.appendChild(albumArt);
             
                 
-                return displaySongCard;
+                //return displaySongCard;
             }
             
             displaySongCard();
