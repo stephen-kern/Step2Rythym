@@ -11,7 +11,7 @@ let url = window.location.href;
 //User info submit
 function handleSubmit(event){
     event.preventDefault();
-    const artistInput = document.getElementById("searchArtist").value;
+    const artistInput = document.getElementById('searchArtist').value;
     const songInput = document.getElementById('searchSong').value;
     fetchSongInfo(songInput);
    // redirect();
@@ -29,17 +29,57 @@ function fetchSongInfo (songInput) {
         return response.json();})
         //this is where we target what we want
         .then((data) =>{//Recieved JSOn OBJ with all song data
+            //move first 10 results into an array
+            let relatedArtistsArr = [];
+            let hits = 10;
+            for (let i = 0; i < hits; i++){
+                relatedArtistsArr.push(data.response.hits[i].result)
+            };
+            console.log(hits);
+            console.log(relatedArtistsArr);
 
+            //Create cards with album art, artist name, full title, maybe link to lyrics when clicked?
+            for(let i = 1; i < 4; i++){
+            function displaySongCard() {
+
+                let songCardContainer = document.getElementById('song-card-container');
+
+                const songCard = document.createElement('div');
+                songCard.classList.add('song-card');
+    
+                const albumArt = document.createElement('img');
+                albumArt.setAttribute('src', relatedArtistsArr[i].header_image_thumbnail_url);
+
+                const songTitle = document.createElement('h3');
+                songTitle.classList.add('song-title');
+                songTitle.innerText = relatedArtistsArr[i].title;//put array obj data here
+            
+                const songArtist = document.createElement('h4');
+                songArtist.classList.add('song-artist');
+                songArtist.innerText = relatedArtistsArr[i].artist_names;//put array obj data here
+            
+                songCardContainer.appendChild(songCard);
+                songCard.appendChild(songTitle);
+                songCard.appendChild(songArtist);
+                songCard.appendChild(albumArt);
+            
+                
+                return displaySongCard;
+            }
+            displaySongCard();
+        }
+            
             //setting that cover art url to a var
          let coverArt = (data.response.hits[0].result.header_image_url);//Cover art image
+            //
+         
             //adding cover art to single-page
             function addArt(){
                 document.getElementById("cover_art").src = coverArt
-                
-                
-
             }
             addArt();
+            
+
 
 
 
@@ -51,9 +91,10 @@ function fetchSongInfo (songInput) {
 
         
         })
+};
     
 
-    }
+    
     
 
 function redirect(){

@@ -51,3 +51,11 @@ body {
 .footer-push{
     margin-bottom: 15rem;
 }
+
+.song-card{
+  grid-column-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 20px 0;
+  border: 1px solid black;
+}
