@@ -18,14 +18,15 @@
       <div class="navbar-end">
         <div class="content content-form container">
           <form id="search-form">
-            <legend class="form-title">Search for a Country</legend>
+            <legend class="form-title">Expand your music repertoire <i class="fa-solid fa-icons"></i></legend>
             <input name="Artist" id="searchArtist" class="input" type="text" placeholder="Artist Name"/>
             <br>
             <br>
-            <input type="text" name="songInput" class="input" id="searchSong" placeholder="Enter Song Title or Artist">
+            <input type="text" name="songInput" class="input" id="searchSong" placeholder="Song Name">
             <br><br>
             <button id="create-search" class="button is-success is-responsive is-focused" type="submit" data-toggle="modal" data-target="#task-form-modal">
               Search
+              <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </form>
         </div>
@@ -49,11 +50,11 @@
     <div class="container is-widescreen">
       <div class="tile is-parent is-vertical">
         <article class="tile is-child notification box-background">
-          <p class="title has-text-centered">Lyrics</p>
-          <button id="lyrics" class="button is-large is-rounded is-success is-responsive is-focused" type="button">Get Lyrics</button>
+          <p class="title has-text-centered">Song Lyrics</p>
+          <button id="lyrics" class="button is-large is-rounded is-success is-responsive is-focused" type="button">Get Lyrics <i class="fa-solid fa-guitar"></i></button>
         </article>
         <article class="tile is-child notification box-accent">
-          <p class="title has-text-centered">Related Artists</p>
+          <p class="title has-text-centered">Related Songs</p>
           <div class="has-text-centered comlums" id="song-card-container">
           </div>
         </article>
