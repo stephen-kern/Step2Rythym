@@ -2,10 +2,11 @@ let newsToken = "07858fbf6a24ae5c4a99e163daf462d0";
 let searchWord = document.getElementById("searchArtist");
 
 // wrap search input inside a eventlistener
-const formSubmitHandler = function (event) {
+function formSubmitHandler() {
+  let searchWord = document.getElementById("searchArtist");
   event.preventDefault();
   // get value from input element
-  let search = searchWord.value.trim();
+  let search = searchWord.value;
   console.log(search);
   if (search) {
     getArticles(search);
@@ -13,9 +14,10 @@ const formSubmitHandler = function (event) {
   } else {
     alert("Please enter an Artist");
   }
-};
+}
 
 // wrap api fetch inside a function
+
 const getArticles = function (searchWord) {
   let search = searchWord.replace(/\s/g, "+");
 
@@ -60,26 +62,18 @@ function displayArticleCard(article) {
   articleDesc.classList.add("p");
   articleDesc.innerText = article.description;
 
-  const articleSrcName = document.createElement('h4');
-  articleSrcName.classList.add('h4');
+  const articleSrcName = document.createElement("h4");
+  articleSrcName.classList.add("h4");
   articleSrcName.innerText = article.source.name;
 
-  const articleSrcUrl = document.createElement('a');
-  articleSrcUrl.classList.add('a');
+  const articleSrcUrl = document.createElement("a");
+  articleSrcUrl.classList.add("a");
   articleSrcUrl.href = article.source.url;
   articleSrcUrl.innerText = article.source.name;
 
+  articleCard.append(articleTitle, articleDesc, articleSrcName, articleSrcUrl);
 
-
-  articleCard.append(
-    articleTitle,
-    articleDesc,
-    articleSrcName,
-    articleSrcUrl
-    );
-  
   articlesContainer.append(articleCard);
-  
 }
 
 $("#search-form").on("submit", formSubmitHandler);
