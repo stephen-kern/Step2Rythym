@@ -29,8 +29,11 @@ Includes a "Get Lyrics" button, where it will take you to the song lyrics once c
 The search will pull up related songs and news
 
 
-
 ## How the page looks:
+![Screenshot of Step2Rythym landing page](Step2Rythym.png)
 
+
+
+## Link: https://stephen-kern.github.io/Step2Rythym/
 
 
