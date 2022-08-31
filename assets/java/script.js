@@ -31,7 +31,7 @@ function fetchSongInfo (songInput) {
         //this is where we target what we want
         .then((data) =>{//Recieved JSOn OBJ with all song data
             //move first 10 results into an array
-            
+            let relatedArtistsArr = [];
             let hits = data.response.hits.length;
             for (let i = 0; i < hits; i++){
                 relatedArtistsArr.push(data.response.hits[i].result)
