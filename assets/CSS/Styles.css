@@ -85,9 +85,9 @@
 .footer-push{
     margin-bottom: 15rem;
 }
-#cover_art{
-   
-  }
+.input{
+    width: 30%;
+}
   #song-card-container{
     display:flex;
     flex-wrap: wrap;
