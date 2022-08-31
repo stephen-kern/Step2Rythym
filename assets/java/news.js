@@ -19,7 +19,7 @@ const formSubmitHandler = function (event) {
 
 // wrap api fetch inside a function
 const getArticles = function (data) {
-  let search = searchWord.replace(/\s/g, "+");
+  let search = userSearch.replace(/\s/g, "+");
 
   // format the github api url
   var apiUrl = `https://gnews.io/api/v4/search?q=${search}&token=${newsToken}`;
