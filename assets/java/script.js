@@ -35,15 +35,12 @@ function fetchSongInfo (songInput) {
         .then((data) =>{//Recieved JSOn OBJ with all song data
             //move first 10 results into an array
 
-            console.log(data);
+            
             
             let hits = data.response.hits.length;
             for (let i = 0; i < hits; i++){
                 relatedArtistsArr.push(data.response.hits[i].result)
             };
-            console.log(data);
-            console.log(hits);
-            console.log(relatedArtistsArr);
 
             console.log(data.response.hits[0].id);
             //Create cards with album art, artist name, full title, maybe link to lyrics when clicked?
@@ -99,9 +96,8 @@ function fetchSongInfo (songInput) {
 
 
        
-        //    console.log(data.response.hits[0].result.artist_names);//artist name
-        //    console.log(data.response.hits[0].result.path);//lyrics url path
-           console.log(data);//whole json data obj
+        
+
 
         
         })
@@ -112,7 +108,7 @@ function fetchSongInfo (songInput) {
     
 
 function redirect(){
-    lyricsBtn.setAttribute ('class','is-loading button is-large is-rounded is-success is-responsive is-focused');
+    lyricsBtn.setAttribute ('class','column is-half is-offset-one-quarter is-loading button is-large is-rounded is-success is-responsive is-focused');
 
     let lyricsUrl = (relatedArtistsArr[0].url);
 

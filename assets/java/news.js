@@ -1,9 +1,10 @@
 let newsToken = "07858fbf6a24ae5c4a99e163daf462d0";
-let searchWord = document.getElementById("searchArtist");
+let searchWord = document.getElementById("searchArtist").value;
 const articlesContainerEl = document.querySelector("#articlesBox");
 
 // wrap search input inside a eventlistener
 const formSubmitHandler = function (event) {
+  debugger
   event.preventDefault();
   // get value from input element
   let search = searchWord.value.trim();
