@@ -27,6 +27,7 @@ function fetchSongInfo (songInput) {
     // make a get request to url
 
     console.log(apiUrl);
+    //clears out old cards and previous arrays
     let relatedArtistsArr = [];
     $('.song-card').remove();
     fetch(apiUrl)
